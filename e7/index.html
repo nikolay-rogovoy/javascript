@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Крестики нолики</title>
+    <style>
+        .xo_button {
+            min-height: 100px;
+            min-width: 100px;
+            margin-bottom: 4px;
+            font-size: 30px;
+        }
+    </style>
+    <script>
+        let map;
+        function newGame() {
+            initMap();
+            drawMap();
+        }
+
+        function drawMap() {
+            document.getElementById('a1').value = map[0][0];
+            document.getElementById('b1').value = map[1][0];
+            document.getElementById('c1').value = map[2][0];
+            document.getElementById('a2').value = map[0][1];
+            document.getElementById('b2').value = map[1][1];
+            document.getElementById('c2').value = map[2][1];
+            document.getElementById('a3').value = map[0][2];
+            document.getElementById('b3').value = map[1][2];
+            document.getElementById('c3').value = map[2][2];
+        }
+
+        function clickOnButton(a, b) {
+            if (map[a][b] !== ' ') {
+                alert('Ячейка уже занята');
+            } else {
+                map[a][b] = 'X';
+                if (checkWinner('X')) {
+                    drawMap();
+                    setTimeout(() => {
+                        alert('Вы выиграли!');
+                    });
+                } else {
+                    nextStroke();
+                    drawMap();
+                    if (checkWinner('O')) {
+                        setTimeout(() => {
+                            alert('Вы проиграли!');
+                        });
+                    }
+                }
+
+            }
+        }
+
+        function nextStroke() {
+            let availableRows = [];
+            for (let i = 0; i < map.length; i++) {
+                let row = map[i];
+                for (let col of row) {
+                    if (col === ' ') {
+                        availableRows.push(i);
+                        break;
+                    }
+                }
+            }
+            if (availableRows.length) {
+                let rowNum = getRandomArbitrary(0, availableRows.length - 1);
+                console.log('Доступные строки: ', availableRows, rowNum);
+
+                let availableCols = [];
+                for (let i = 0; i < map[rowNum].length; i++) {
+                    if (map[rowNum][i] === ' ') {
+                        availableCols.push(i);
+                    }
+                }
+
+                if (availableCols.length) {
+                    let colNumInd = getRandomArbitrary(0, availableCols.length - 1);
+                    let colNum = availableCols[colNumInd];
+                    console.log('Доступные колонки: ', availableCols, colNum);
+                    map[rowNum][colNum] = 'O';
+                }
+
+            }
+        }
+
+        function getRandomArbitrary(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+        function initMap() {
+            map = [
+                [' ', ' ', ' '],
+                [' ', ' ', ' '],
+                [' ', ' ', ' '],
+            ];
+        }
+
+        function checkWinner(char) {
+            for (let i = 0; i < map.length; i++) {
+                let checkLine = true;
+                for (let j = 0; j < map[i].length; j++) {
+                    if (map[i][j] !== char) {
+                        checkLine = false;
+                    }
+                }
+                if (checkLine) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        initMap();
+    </script>
+</head>
+
+<body>
+    <!--
+        Создайте игру в крестики нолики
+    -->
+    <input type="button" #new_game value="Новая игра" onclick="newGame()" class=""
+        style="margin-bottom: 10px; font-size: 24px;">
+    <br>
+    <input type="button" id="a1" value=" " onclick="clickOnButton(0,0)" class="xo_button">
+    <input type="button" id="b1" value=" " onclick="clickOnButton(1,0)" class="xo_button">
+    <input type="button" id="c1" value=" " onclick="clickOnButton(2,0)" class="xo_button"><br>
+    <input type="button" id="a2" value=" " onclick="clickOnButton(0,1)" class="xo_button">
+    <input type="button" id="b2" value=" " onclick="clickOnButton(1,1)" class="xo_button">
+    <input type="button" id="c2" value=" " onclick="clickOnButton(2,1)" class="xo_button"><br>
+    <input type="button" id="a3" value=" " onclick="clickOnButton(0,2)" class="xo_button">
+    <input type="button" id="b3" value=" " onclick="clickOnButton(1,2)" class="xo_button">
+    <input type="button" id="c3" value=" " onclick="clickOnButton(2,2)" class="xo_button">
+
+</body>
+
+</html>

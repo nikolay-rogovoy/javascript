@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1</title>
+
+    <style>
+    </style>
+    <script>
+        "use strict"
+        let global = this;  // Оп­ре­де­лить гло­баль­ную пе­ре­мен­ную для ссыл­ки на гло­баль­ный объ­ект
+        console.log(this);
+        function f() {
+            console.log(global, this);
+        }
+        f();
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
