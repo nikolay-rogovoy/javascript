@@ -29,14 +29,20 @@ let pr = new Promise((resolve, reject) => {
 
 console.log('Старт работы?');
 
-function writeFile(data) {
+/**/
+function writeFile(delay) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('Записали данные в файл');
-        }, 1000);
+        }, delay);
     });
 }
-*/
+
+Promise.all([writeFile(1000), writeFile(2000)])
+    .then(() => {
+        console.log('Success');
+    });
+
 
 // console.log(rxjs);
 
@@ -45,11 +51,50 @@ let data = JSON.parse(fileContent);
 data.baz = 'foo';
 fs.writeFileSync('l3/d2.json', JSON.stringify(data, null, 2), { encoding: 'utf-8' });
 
-/*
+// /*
+// */
+
+// new Promise((resolve, reject) => {
+//     fs.readFile('l3/d1.json', 'utf8', (error, data) => {
+//         if (error) {
+//             return reject(error);
+//         } else {
+//             resolve(data)
+//         }
+//     });
+// })
+//     .then((fileContent) => {
+//         let data = JSON.parse(fileContent);
+//         data.baz = 'foo1';
+//         // console.log(fileContent);
+//         if (false) {
+//             return "ok";
+//         } else {
+//             return new Promise((resolve, reject) => {
+//                 fs.writeFile('l3/d2.json', JSON.stringify(data), { encoding: 'utf-8' },
+//                     (error, data) => {
+//                         data.baz = 'foo2';
+//                         if (error) {
+//                             reject(data);
+//                         } else {
+//                             resolve(data);
+//                         }
+//                     });
+//             })
+//         }
+//     })
+//     .then(() => {
+//         // console.log();
+//     });
+
+// let files = fs.readdirSync('./');
+// console.log(files);
+
+/* */
 rxjs.range(1, 10)
     .pipe(
         rxjs.filter(x => x % 2 === 1),
         rxjs.map(x => x + x)
     )
     .subscribe(x => console.log(x));
-*/
+/**/
