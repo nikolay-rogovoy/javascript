@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .alert {
+        background-color: green;
+    }
+
+    .b {
+        border: 1px solid black;
+    }
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <script>
+        function f() {
+            let div = document.createElement('div');
+            div.className = 'alert';
+            div.innerHTML = '<strong>Всем привет!</strong> Вы прочитали важное сообщение.';
+            div.id = 'myDiv';
+            // div.attributes.
+            document.body.append(div);
+        }
+        function f2() {
+            let div = document.getElementById('myDiv');
+            div.remove();
+        }
+        function f3() {
+            let div = document.getElementById('myDiv');
+            div.style.backgroundColor = "red";
+        }
+        function f4() {
+            let div = document.getElementById('myDiv');
+            let divInner = document.createElement('div');
+            divInner.onmouseover = function () {
+                console.log('divInner.onmouseover');
+            }
+            divInner.addEventListener('click', () => { console.log('click') });
+            divInner.innerHTML = 'Inner';
+            divInner.id = 'innerDiv';
+            div.appendChild(divInner);
+        }
+        function f5() {
+            let div = document.getElementById('myDiv');
+            div.style.minHeight = '100px'
+        }
+        function f6() {
+            let div = document.getElementById('myDiv');
+            div.classList.add('b');
+        }
+        function f7() {
+            let div = document.getElementById('myDiv');
+            div.classList.remove('b');
+        }
+        function f8() {
+            let div = document.getElementById('myDiv');
+            div.style.display = 'none';
+        }
+        function f9() {
+            let div = document.getElementById('myDiv');
+            div.style.display = '';
+        }
+        function f10() {
+            let div = document.getElementById('myDiv');
+            div.style.visibility = 'hidden';
+        }
+        function f11() {
+            let div = document.getElementById('myDiv');
+            div.style.visibility = 'visible';
+        }
+        function f12() {
+            let div = document.getElementById('myDiv');
+            console.log(getComputedStyle(div));
+        }
+
+    </script>
+</head>
+
+<body onload="f()" style="border: 1px solid black">
+    <button onclick="f2()" onmouseover="console.log('onmouseover')">remove</button>
+    <button onclick="f3()">backgroundColor</button>
+    <button onclick="f4()">add div</button>
+    <button onclick="f5()">minHeight</button>
+    <button onclick="f6()">addClass</button>
+    <button onclick="f7()">removeClass</button>
+    <button onclick="f8()">none</button>
+    <button onclick="f9()">def</button>
+    <button onclick="f10()">visible</button>
+    <button onclick="f11()">unvisible</button>
+    <button onclick="f12()">getComputedStyle</button>
+</body>
+
+</html>

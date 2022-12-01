@@ -99,41 +99,60 @@
         }
 
         function checkWinner(char) {
-            for (let i = 0; i < map.length; i++) {
-                let checkLine = true;
-                for (let j = 0; j < map[i].length; j++) {
-                    if (map[i][j] !== char) {
-                        checkLine = false;
-                    }
-                }
-                if (checkLine) {
-                    return true;
-                }
+            if (map[0][0] === char && map[0][1] === char && map[0][2] === char) {
+                return true;
+            } else if (map[1][0] === char && map[1][1] === char && map[1][2] === char) {
+                return true;
+            } else if (map[2][0] === char && map[2][1] === char && map[2][2] === char) {
+                return true;
+            } else if (map[0][0] === char && map[1][0] === char && map[2][0] === char) {
+                return true;
+            } else if (map[0][1] === char && map[1][1] === char && map[2][1] === char) {
+                return true;
+            } else if (map[0][2] === char && map[1][2] === char && map[2][2] === char) {
+                return true;
+            } else if (map[0][0] === char && map[1][1] === char && map[2][2] === char) {
+                return true;
+            } else if (map[0][2] === char && map[1][1] === char && map[2][0] === char) {
+                return true;
             }
             return false;
         }
 
         initMap();
     </script>
+    <script>
+        function f2() {
+            let canvas = document.getElementById('myCanvas');
+            let ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(0, 0, 150, 75);
+        }
+    </script>
 </head>
 
-<body>
+<body onload="f2()">
     <!--
         Создайте игру в крестики нолики
     -->
-    <input type="button" #new_game value="Новая игра" onclick="newGame()" class=""
-        style="margin-bottom: 10px; font-size: 24px;">
-    <br>
-    <input type="button" id="a1" value=" " onclick="clickOnButton(0,0)" class="xo_button">
-    <input type="button" id="b1" value=" " onclick="clickOnButton(1,0)" class="xo_button">
-    <input type="button" id="c1" value=" " onclick="clickOnButton(2,0)" class="xo_button"><br>
-    <input type="button" id="a2" value=" " onclick="clickOnButton(0,1)" class="xo_button">
-    <input type="button" id="b2" value=" " onclick="clickOnButton(1,1)" class="xo_button">
-    <input type="button" id="c2" value=" " onclick="clickOnButton(2,1)" class="xo_button"><br>
-    <input type="button" id="a3" value=" " onclick="clickOnButton(0,2)" class="xo_button">
-    <input type="button" id="b3" value=" " onclick="clickOnButton(1,2)" class="xo_button">
-    <input type="button" id="c3" value=" " onclick="clickOnButton(2,2)" class="xo_button">
+    <div>
+        <input type="button" #new_game value="Новая игра" onclick="newGame()" class=""
+            style="margin-bottom: 10px; font-size: 24px;">
+        <br>
+        <input type="button" id="a1" value=" " onclick="clickOnButton(0,0)" class="xo_button">
+        <input type="button" id="b1" value=" " onclick="clickOnButton(1,0)" class="xo_button">
+        <input type="button" id="c1" value=" " onclick="clickOnButton(2,0)" class="xo_button"><br>
+        <input type="button" id="a2" value=" " onclick="clickOnButton(0,1)" class="xo_button">
+        <input type="button" id="b2" value=" " onclick="clickOnButton(1,1)" class="xo_button">
+        <input type="button" id="c2" value=" " onclick="clickOnButton(2,1)" class="xo_button"><br>
+        <input type="button" id="a3" value=" " onclick="clickOnButton(0,2)" class="xo_button">
+        <input type="button" id="b3" value=" " onclick="clickOnButton(1,2)" class="xo_button">
+        <input type="button" id="c3" value=" " onclick="clickOnButton(2,2)" class="xo_button">
 
+    </div>
+    <div>
+        <canvas id="myCanvas" style="min-height: 100px;min-width: 100px;"></canvas>
+    </div>
 </body>
 
 </html>

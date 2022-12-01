@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <script>
+        function getElements() {
+            let elements = {};
+            for (let i = 0; i < arguments.length; i++) {
+                let id = arguments[i];
+                let elt = document.getElementById(id);
+                if (elt == null)
+                    throw new Error("No element with id: " + id);
+                elements[id] = elt;
+            }
+            return elements
+        }
+
+        function f() {
+            // getElementById
+            let input1 = document.getElementById('input1');
+            let elements = getElements('input1');
+            let input1_2 = document.getElementsByName('name_input1');
+
+            let spans = document.getElementsByTagName('span');
+            let allElements = document.getElementsByTagName('*');
+
+            let p1 = document.getElementById('p1');
+            let span3 = p1.getElementsByTagName('span')
+            console.log(document);
+            console.log(input1, elements, input1_2);
+            console.log(document.iframe1, document.myForm);
+            console.log(spans);
+            console.log(allElements);
+            console.log(span3);
+            console.log(document.forms.myForm);
+
+            for (let span of span3) {
+                console.log('span3', span);
+            }
+            let snapshot = Array.prototype.slice.call(span3, 0);
+            console.log('snapshot', snapshot);
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <button type="button" onclick="f()">Click me</button>
+    <form name="myForm">
+        <input type="text" id="input1" name="name_input1">
+    </form>
+    <iframe name="iframe1"
+        src="https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"></iframe>
+    <span>span1</span>
+    <SPAN>span2</SPAN>
+    <p id="p1"><span id="span3">span3</span></p>
+</body>
+
+</html>

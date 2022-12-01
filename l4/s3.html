@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .some_class {
+        min-height: 200px;
+        min-width: 200px;
+    }
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <script>
+        function f() {
+            let el = document.getElementsByClassName('some_class');
+            console.log(el);
+            // // Оты­скать все эле­мен­ты с иден­ти­фи­ка­то­ром "warning" в ат­ри­бу­те class
+            // warnings = document.getElementsByClassName("warning");
+            // // Оты­скать всех по­том­ков эле­мен­та с име­нем "log" с иден­ти­фи­ка­то­ра­ми "error"
+            // // и "fatal" в ат­ри­бу­те class
+            // log = document.getElementById("log");
+            // fatal = log.getElementsByClassName("fatal error");
+
+            // let lastChildBody = document.querySelectorAll('div:last-child')[0];
+            let lastChildBody = document.querySelectorAll('body>div:last-child')[0];
+            /*
+            if (lastChildBody.style.visibility === 'hidden') {
+                lastChildBody.style.visibility = 'visible';
+            } else {
+                lastChildBody.style.visibility = 'hidden';
+            }
+            */
+
+            console.log(lastChildBody);
+
+            let img1 = document.getElementById('img1');
+            console.log(img1);
+
+            // https://antonshevchuk.gitbooks.io/jquery-for-beginners/content/10_go_on/sizzle.html
+            // Dojo
+            // https://ru.wikipedia.org/wiki/Dojo
+
+            
+
+        }
+    </script>
+</head>
+
+<body>
+    <button type="button" onclick="f()">Click me</button>
+    <div class="some_class" style="background-color: red;"></div>
+    <div class="some_class" style="background-color: green;"></div>
+    <div class="some_class" style="background-color: blue;"></div>
+
+    <img id="img1" src="https://klike.net/uploads/posts/2020-04/1587719791_1.jpg">
+</body>
+
+</html>
