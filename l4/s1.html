@@ -4,11 +4,35 @@
 <head>
     <meta charset="utf-8">
     <title>Sample Document</title>
+    <style>
+        .some_class {
+            background-color: aquamarine;
+            display: block;
+        }
+    </style>
+    <script>
+        function f(event) {
+            console.log(event);
+            /*
+            let b = document.createElement('button');
+            b.addEventListener('click', f);
+            b.addEventListener('click', f);
+            b.addEventListener('click', f);
+            b.innerHTML = 'ok'
+            // b.onclick = f;
+            document.body.append(b);
+            */
+        }
+
+    </script>
 </head>
 
-<body>
-    <h1>An HTML Document</h1>
-    <p>This is a <i>simple</i> document.</p>
+<body onload="" onclick="f(event)">
+    <div id="d1">
+        <div id="d2"></div>
+        div1
+    </div>
+    <button onclick="f(event)">click me</button>
 </body>
 
 </html>

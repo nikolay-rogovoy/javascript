@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <style>
+        .some_class {
+            background-color: aquamarine;
+            display: none;
+        }
+    </style>
+    <script>
+        function f() {
+            let input1 = document.getElementById('input1');
+            alert(input1.value);
+        }
+
+    </script>
+</head>
+
+<body onload="">
+    Выведите содержимое инпута в алерте
+    <input type="text" id="input1">
+    <button onclick="f()">Click me</button>
+</body>
+
+</html>

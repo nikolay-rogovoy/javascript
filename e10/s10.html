@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <style>
+        .some_class {
+            background-color: aquamarine;
+            display: none;
+        }
+    </style>
+    <script>
+        function f() {
+            // В странице есть блок div, вставте в него новый input
+            let d1 = document.getElementById('d1');
+            let i1 = document.createElement('input');
+            i1.id = 'i1';
+            i1.value = 'some text';
+            d1.append(i1);
+            
+        }
+    </script>
+</head>
+
+<body onload="">
+    В странице есть блок div, вставте в него новый input
+    <button onclick="f()">Click me</button>
+    <div id="d1"></div>
+</body>
+
+</html>

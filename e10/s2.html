@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <style>
+        .some_class {
+            background-color: aquamarine;
+            display: none;
+        }
+    </style>
+    <script>
+        function f() {
+            let input_1 = document.getElementById('input_1');
+            console.log(input_1);
+            input_1.value = 'text 2';
+        }
+    </script>
+</head>
+
+<body onload="">
+    <input id="input_1" value="text 1">
+    <button onclick="f()">Click me</button>
+</body>
+
+</html>

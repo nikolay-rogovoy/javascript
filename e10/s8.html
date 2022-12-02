@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <style>
+        .some_class {
+            background-color: aquamarine;
+            display: none;
+        }
+    </style>
+    <script>
+        function f1() {
+            let el = document.getElementById('d1');
+            el.style.visibility = 'hidden';
+            // el.style.display = 'none';
+        }
+        function f2() {
+            let el = document.getElementById('d1');
+            el.style.visibility = 'visible';
+            // el.style.display = '';
+        }
+    </script>
+</head>
+
+<body onload="">
+    8 - Сделайте div элемент не видимым при нажатии кнопки
+    9 - Удалите элемент из потока отображения DOM дерева
+    <button onclick="f1()">Click me</button>
+    <button onclick="f2()">Click me</button>
+    <div style="min-height: 50px; min-width: 50px; background-color: aqua;" id="d1"></div>
+    <div style="min-height: 50px; min-width: 50px; background-color: blue;" id="d2"></div>
+</body>
+
+</html>

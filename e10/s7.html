@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <style>
+        .some_class {
+            background-color: aquamarine;
+            display: none;
+        }
+    </style>
+    <script>
+        function f1() {
+            let el = document.getElementById('i1');
+            el.disabled = true;
+
+        }
+        function f2() {
+            let el = document.getElementById('i1');
+            el.disabled = false;
+        }
+    </script>
+</head>
+
+<body onload="">
+    <button onclick="f1()">Lock</button>
+    <button onclick="f2()">Unlock</button>
+    <input type="text" id="i1">
+</body>
+
+</html>

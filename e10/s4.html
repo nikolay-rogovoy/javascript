@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <style>
+        .some_class {
+            background-color: aquamarine;
+            display: none;
+        }
+    </style>
+    <script>
+        function f() {
+            let i1 = document.getElementById('i1');
+            let i2 = document.getElementById('i2');
+            let sw = i1.value;
+            i1.value = i2.value;
+            i2.value = sw;
+        }
+
+    </script>
+</head>
+
+<body onload="">
+    Поменяйте содержимым между инпутами
+    <input type="text" id="i1">
+    <input type="text" id="i2">
+    <button onclick="f()">Click me</button>
+</body>
+
+</html>
