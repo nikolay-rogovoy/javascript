@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello world!</title>
+    <script>
+        function f() {
+            let t1 = document.getElementById('t1');
+            console.log(t1.value);
+            localStorage.setItem('t1', t1.value);
+
+        }
+        function f3(event) {
+            let t1 = document.getElementById('t1');
+            console.log(t1.value, event);
+            localStorage.setItem('t1', t1.value + event.key);
+
+        }
+        function f2() {
+            let t1 = document.getElementById('t1');
+            t1.value = localStorage.getItem('t1');
+        }
+    </script>
+</head>
+
+<body onload="f2()">
+    <textarea name="t1" id="t1" cols="30" rows="10" onkeypress="f3(event)"></textarea>
+    <button onclick="f()">Save</button>
+</body>
+
+</html>

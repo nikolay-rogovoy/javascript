@@ -2,6 +2,10 @@
 // Многострочные литералы
 let v
 `string ${v}
+
+\n \t \u0010
+
+
 string ${v}
 `;
 
@@ -34,7 +38,7 @@ var a = {
 }
 
 // Object.assign()
-var obj = { a: 1 };
+var obj = { a: 1, b: { b: 2 } };
 var copy = Object.assign({}, obj);
 console.log(copy); // { a: 1 }
 
@@ -59,21 +63,26 @@ function myFun(a = 5) {
     return a * a;
 }
 
-console.log(myFun()); // 25
+console.log(myFun(), myFun(undefined)); // 25
 
 
 // Destructuring assignment
 
+let arr1 = [1, 2, 3];
 var a, b, rest;
-var [a, b] = [1, 2];
+var [a, b] = arr1;
+let a = arr1[0];
+let b = arr1[b];
 
-let {a, b} = {a:1, b:2};
+
+let { a, b } = { a: 1, b: 2 };
+let a = { a: 1, b: 2 }.a;
 
 // Map
 var myMap = new Map();
 
 var keyObj = {},
-    keyFunc = function () {},
+    keyFunc = function () { },
     keyString = "a string";
 
 // задание значений
@@ -89,9 +98,10 @@ myMap.get(keyObj);       // "value associated with keyObj"
 myMap.get(keyFunc);      // "value associated with keyFunc"
 
 myMap.get("a string");   // "value associated with 'a string'"
-                         // потому что keyString === 'a string'
+// потому что keyString === 'a string'
 myMap.get({});           // undefined, потому что keyObj !== {}
-myMap.get(function() {}) // undefined, потому что keyFunc !== function () {}
+myMap.get(function () { }) // undefined, потому что keyFunc !== function () {}
+myMap.has('key') == true
 
 
 
@@ -103,28 +113,37 @@ mySet.add(1); // Set { 1 }
 mySet.add(5); // Set { 1, 5 }
 mySet.add(5); // Set { 1, 5 }
 mySet.add("some text"); // Set { 1, 5, 'some text' }
-var o = {a: 1, b: 2};
+var o = { a: 1, b: 2 };
 
 
 
 // Cинтаксис getter'ов и setter'ов
 class Student {
-	constructor(name) {
-    	        this.name = name;
-  	}
-  	get Name() {
-  		return this.name;
-  	}
-  	set Name(newName) {
-  		if(typeof(newName) != "string")
-  			throw new Error("Name is not a string!");
-  		else
-  			this.name = newName; // Robert
-  	}
+    constructor(name) {
+        this.name = name;
+    }
+    fgetName() {
+        return this.name;
+    }
+    get Name() {
+        return this.name;
+    }
+
+    fsetName(name) {
+        this.name = name;
+    }
+    set Name(newName) {
+        if (typeof (newName) != "string")
+            throw new Error("Name is not a string!");
+        else
+            this.name = newName; // Robert
+    }
 }
 var robert = new Student('robert');
 robert.Name = "Robert";
+robert.fsetName("Robert");
 console.log(robert.Name);
+console.log(robert.fgetName());
 
 
 
@@ -134,13 +153,13 @@ console.log(robert.Name);
 
 // Iterators
 
-function makeIterator(array){
+function makeIterator(array) {
     var nextIndex = 0;
-    
+
     return {
-       next: function(){
-           return nextIndex < array.length ? { value: array[nextIndex++], done: false } : { done: true };
-       }
+        next: function () {
+            return nextIndex < array.length ? { value: array[nextIndex++], done: false } : { done: true };
+        }
     }
 }
 

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "e11": "node e11/script.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
