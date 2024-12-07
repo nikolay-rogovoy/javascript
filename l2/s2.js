@@ -121,7 +121,7 @@ switch (n) {
 }
 
 function convert(x) {
-    switch(typeof x) {
+    switch (typeof x) {
         case 'number':              // Пре­об­ра­зо­вать чис­ло в ше­ст­на­дца­те­рич­ное це­лое
             return x.toString(16);
         case 'string':              // Вер­нуть стро­ку, за­клю­чен­ную в ка­выч­ки
@@ -181,13 +181,12 @@ while(про­вер­ка) {
 for(ини­циа­ли­за­ция; про­вер­ка; ин­кре­мент)
     ин­ст­рук­ция
  */
-
 for (let i = 0; i < 10; i++) {
     console.log(count);
 }
 
 let ii = 0;
-while(ii < 10) {
+while (ii < 10) {
     ;
     i++;
 }
@@ -225,6 +224,26 @@ for (a[iii++] in o) /* пус­тое те­ло цик­ла */;
 
 // Перечисление индексов массивов
 for (i in [1, 3, 4]) console.log(i);
+
+for (elem of [1, 3, 4]) {
+    if (elem === 3) {
+        continue;
+    }
+    console.log(i);
+}
+
+try {
+    try {
+        throw new Error('Some Err');
+
+    }
+    catch (err) {
+        throw new Error('Some Err');
+    }
+}
+catch (err) {
+    console.error(err);
+}
 
 
 

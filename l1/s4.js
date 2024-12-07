@@ -6,6 +6,22 @@ function printprops(o) {
         console.log(p + ": " + o[p] + "\n");
 }
 
+let a = {
+    name: 'Bob',
+    print: function () {
+        this.name
+    }
+};
+
+a.print();
+function print(a) {
+    a.name
+}
+print(a);
+
+let date = new Date();
+print.call([]);
+
 /**Вы­чис­ля­ет Де­кар­то­во рас­стоя­ние ме­ж­ду точ­ка­ми (x1,y1) и (x2,y2).*/
 function distance(x1, y1, x2, y2) {
     var dx = x2 - x1;
@@ -115,9 +131,21 @@ let obj = {
     }
 };
 
+function f0() {
+}
+
+let f1 = [function () { }, function () { }, function () { }]
+
+
+
 console.log(this);
 obj.f1();
 obj.f4();
 obj.f5(() => console.log(this));
 obj.f5(function () { console.log(this) });
+
+
+let o_o1 = {};
+let o_o = new Object();
+
 

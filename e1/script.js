@@ -1,6 +1,6 @@
 "use strict"
 
-console.log('Hello world!');
+// console.log('Hello world!');
 
 /**
 Создайте переменные и инициализируйте их следующими литералами:
@@ -21,3 +21,32 @@ console.log('Hello world!');
 
 
 */
+let num = 123;
+let num2 = 123.123;
+let str = '1.1';
+let str2 = "2";
+let str3 = `
+num = ${num};
+num2 = ${num2}`;
+
+let date = new Date();
+let b1 = true;
+
+// console.log(date);
+
+function print1(num, num2) {
+    console.log(`
+num = ${num};
+num2 = ${num2}`);
+}
+
+
+
+let print2 = function(num, num2) {
+    print1(num, num2);
+}
+
+let print3 = (num, num2) => {
+    print2(num, num2);
+}
+print3(1, 2);

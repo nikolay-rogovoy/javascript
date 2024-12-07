@@ -46,6 +46,11 @@
 Дан массив с числами. Создайте новый массив, состоящий из квадратов этих чисел.
 Используйте map
 */
+/*
+let num = [1, 2, 3, 4, 5];
+let pownum = num.map((num) => { return Math.pow(num, 2) });
+console.log(pownum);
+*/
 
 /**
 Дан массив с числами. Оставьте в нем только отрицательные числа.
@@ -104,4 +109,80 @@
 /**
 
 */
+
+
+(function f() {
+    setTimeout(() => {
+        console.log('1');
+        ///
+
+        setTimeout(() => {
+            console.log('1');
+            ///
+
+            setTimeout(() => {
+                console.log('1');
+                ///
+
+                setTimeout(() => {
+                    console.log('1');
+                    ///
+
+                }, 1000);
+
+
+            }, 1000);
+
+
+        }, 1000);
+
+    }, 1000);
+}
+)();
+
+new Promise((res, rej) => {
+    setTimeout(() => {
+        console.log('1');
+        ///
+        res(ok);
+    }, 1000);
+})
+    .then(() => {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                console.log('1');
+                ///
+                res(ok);
+            }, 1000);
+        })
+    })
+    .then(() => {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                console.log('1');
+                ///
+                res(ok);
+            }, 1000);
+        })
+    })
+    .then(() => {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                console.log('1');
+                ///
+                res(ok);
+            }, 1000);
+        })
+    })
+    .then(() => {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                console.log('1');
+                ///
+                res(ok);
+            }, 1000);
+        })
+    })
+    ;
+
 

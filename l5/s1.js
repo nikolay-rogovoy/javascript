@@ -68,6 +68,128 @@ console.log(myFun(), myFun(undefined)); // 25
 
 // Destructuring assignment
 
+
+let [firstName, lastName] = ["firstName", "lastName"];
+
+alert(firstName); // firstName
+alert(lastName);  // lastName
+
+
+let [firstName, lastName, ...rest] = "Юлий Цезарь Император Рима".split(" ");
+
+alert(firstName); // Юлий
+alert(lastName);  // Цезарь
+alert(rest);      // Император,Рима (массив из 2х элементов)
+
+// let [firstName, surname] = arr;
+let firstName = arr[0];
+let surname = arr[1];
+
+// второй элемент не нужен
+let [firstName, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+alert( title ); // Consul
+
+
+let [a, b, c] = "abc";
+let [one, two, three] = new Set([1, 2, 3]);
+
+
+let user = {};
+[user.name, user.surname] = "qwe asd".split(' ');
+
+alert(user.name); // qwe
+alert(user.surname); // asd
+
+
+let user = {
+    name: "John",
+    age: 30
+  };
+  
+  // цикл по ключам и значениям
+  for (let [key, value] of Object.entries(user)) {
+    alert(`${key}:${value}`); // name:John, затем age:30
+  }
+
+
+let [firstName, lastName] = [];
+
+alert(firstName); // undefined
+
+
+// значения по умолчанию
+let [firstName = "Гость", lastName = "Анонимный"] = [];
+
+alert(firstName); // Гость
+alert(lastName);  // Анонимный
+
+
+function defaultLastName() {
+    return Date.now() + '-visitor';
+}
+
+// lastName получит значение, соответствующее текущей дате:
+let [firstName, lastName = defaultLastName()] = ["Вася"];
+
+alert(firstName); // Вася
+alert(lastName);  // 1436...-visitor
+
+
+
+// Деструктуризация объекта
+let { var1, var2 } = { var1: …, var2: … };
+
+let options = {
+    title: "Меню",
+    width: 100,
+    height: 200
+};
+
+let { title, width, height } = options;
+
+alert(title);  // Меню
+alert(width);  // 100
+alert(height); // 200
+
+
+let options = {
+    title: "Меню",
+    width: 100,
+    height: 200
+};
+
+let { width: w, height: h, title } = options;
+
+alert(title);  // Меню
+alert(w);      // 100
+alert(h);      // 200
+
+
+
+let options = {
+    title: "Меню"
+  };
+
+let {width=100, height=200, title} = options;
+
+alert(title);  // Меню
+alert(width);  // 100
+alert(height); // 200
+
+// Можно и сочетать одновременно двоеточие и равенство:
+let options = {
+    title: "Меню"
+  };
+
+let {width:w=100, height:h=200, title, ...rest} = options;
+
+alert(title);  // Меню
+alert(w);      // 100
+alert(h);      // 200
+
+
+
+
 let arr1 = [1, 2, 3];
 var a, b, rest;
 var [a, b] = arr1;

@@ -38,6 +38,14 @@ in              | Про­вер­ка на­ли­чия свой­ст­ва
 
  */
 
+let a = 1;
+let b = a % 2;
+let c = a + b * 2;
+
+if (a && !b) {
+
+}
+
 function oper() {
     console.log('oper: ', 2 + 2 * 2);
     console.log('oper: ', (2 + 2) * 2);
@@ -55,6 +63,8 @@ function variables() {
     let income2;
     let myIncome_from_deposit;
     // Ошибочные имена: 222lol, @someVariable, my%percent, await, break, case, catch, class, const, continue, debugger, default, delete, do, else, enum, export, extends, false, finally, for, function, if, import, in, instanceof, new, null, return, super, switch, this, throw, true, try, typeof, var, void, while, with, yield
+    let for_;
+    for_ = ''
 
     // Две разные переменные
     let username;

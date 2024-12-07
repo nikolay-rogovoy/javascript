@@ -13,6 +13,9 @@ let book = {
     }
 };
 
+
+let date1 = Object.create(Object.Date);
+
 // Встроенные конструкторы
 let o = new Object(); // Соз­дать но­вый пус­той объ­ект: то же, что и {}.
 let a = new Array(); // Соз­дать пус­той мас­сив: то же, что и [].

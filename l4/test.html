@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+    <style>
+        .line {
+            border: none;
+
+            //background-color: rgb(0, 0, 0);
+            //display: block;
+        }
+
+        .lamp {
+            border: solid;
+            min-width: 50px;
+            min-height: 50px;
+            max-width: 50px;
+            max-width: 50px;
+            border-radius: 50px;
+        }
+
+        .r {
+            background-color: red;
+        }
+
+        .y {
+            background-color: yellow;
+        }
+
+        .g {
+            background-color: green;
+        }
+    </style>
+    <script>
+        function f(event) {
+
+
+        }
+        function setred() {
+            let r = document.getElementById('red');
+            let y = document.getElementById('yellow');
+            let g = document.getElementById('green');
+
+            r.classList.add('r');
+            y.classList.remove('y');
+            y.classList.remove('g');
+        }
+        function setyellow() {
+            let r = document.getElementById('red');
+            let y = document.getElementById('yellow');
+            let g = document.getElementById('green');
+            r.classList.remove('r');
+            y.classList.add('y');
+            y.classList.remove('g');
+        }
+        function setgreen() {
+            let r = document.getElementById('red');
+            let y = document.getElementById('yellow');
+            let g = document.getElementById('green');
+            r.classList.remove('r');
+            y.classList.remove('y');
+            y.classList.add('g');
+        }
+    </script>
+</head>
+
+<body onload="" onclick="f(event)">
+    <div class="line">
+        <div class="lamp" id="red" onclick="setred()"></div>
+        <div class="lamp" id="yellow" onclick="setyellow()"></div>
+        <div class="lamp" id="green" onclick="setgreen()"></div>
+    </div>
+
+</body>
+
+</html>

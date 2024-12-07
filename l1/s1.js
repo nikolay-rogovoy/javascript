@@ -1,5 +1,14 @@
 "use strict"
 
+const glob = {
+    aa: '21312'
+};
+
+const aa = '21312';
+console.log(aa);
+
+aa = '123';
+
 // Простые типы
 let a, b, c, d = true;
 a = 1;
@@ -7,6 +16,11 @@ b = 'Строка';
 c = 3.14;
 
 console.log('Простые типы:', a, b, c, d);
+
+let arr = ['Value 1', , 'Value 4', 'Value 11'];
+
+arr.sort();
+
 
 // Специальные
 let nullVar = null;
@@ -98,11 +112,16 @@ function dataTime() {
 
 dataTime();
 
+
 // Строки
 function strings() {
     let s1 = 'срока\n - перенос строки \\n - а с экранированием ничего не происходит';
     let s2 = "срока";
     let s3 = `срока${s2}
+    asdf
+    asdf
+    asdf ${s1}
+    asdef
 Многострочная строка тут \u000A - еще перенос строки`;
     console.log('strings: ', s1, s2, s3);
 
@@ -127,6 +146,8 @@ strings();
 /***/
 function bool() {
     let b1 = true;
+    let b1_2 = false;
+    let res = 1 < 2; // => res = true
     let b2 = 1 + 1 == 2;
     let b3 = !!'string';
     let b4 = !'string';
@@ -137,6 +158,24 @@ bool();
 
 /***/
 function nullAndUndefined() {
+
+    let user = {
+        name: 'Bob',
+        pass: '123123_new',
+        comment: undefined,
+    };
+
+    let orm;
+
+    orm.save(user);
+
+
+    if (result.a == undefined) {
+
+    }
+
+
+
     let obj = {
         a: null
     }
@@ -167,6 +206,15 @@ globalVar();
 
 /***/
 function wrapObject() {
+    let user = {
+        name: 123,
+        print: function () {
+            console.log(this.name);
+        }
+    };
+    console.log(user.name);
+    user.print();
+
     let s = 'hello world!'; // Стро­ка
     let word = s.substring(s.indexOf(' ') + 1, s.length); // Ис­поль­зо­ва­ние свойств стро­ки
     // Под капотом происходит: new String(s).
@@ -181,6 +229,7 @@ function wrapObject() {
     let S = new String(s2); //Объ­ект String
     let N = new Number(n); //Объ­ект Number
     let B = new Boolean(b); //Объ­ект Boolean
+
 }
 
 wrapObject();
@@ -201,9 +250,17 @@ function immutableValues() {
     let o = { x: 1 }; // На­чаль­ное зна­че­ние объ­ек­та
     o.x = 2; // Из­ме­нить, из­ме­нив зна­че­ние свой­ст­ва
     o.y = 3; // Из­ме­нить, до­ба­вив но­вое свой­ст­во
+
     let a = [1, 2, 3] // Мас­си­вы так­же яв­ля­ют­ся из­ме­няе­мы­ми объ­ек­та­ми
     a[0] = 0; // Из­ме­нить зна­че­ние эле­мен­та мас­сив
     a[3] = 4; // До­ба­вить но­вый эле­мент
+
+    let s1 = '123';
+    let s2 = '123';
+
+    if (s1 == s2) {
+
+    }
 
     let o2 = { x: 1 }, p2 = { x: 1 };	// Два объ­ек­та с оди­на­ко­вы­ми свой­ст­ва­ми
     o2 === p2		// => false: раз­ные объ­ек­ты не яв­ля­ют­ся рав­ны­ми
@@ -217,11 +274,20 @@ function immutableValues() {
     a3 === b3; // => true: a и b ссы­ла­ют­ся на один и тот же объ­ект, по­это­му они рав­ны.
 }
 
+let obj;
+
+let asd = '1' + 1;
+if (obj) {
+
+}
+
 immutableValues();
 
 
+let global = this;
 /***/
 function copyObjects() {
+
     let a = ['a', 'b', 'c']; // Ко­пи­руе­мый мас­сив
     var b = []; // Мас­сив, ку­да вы­пол­ня­ет­ся ко­пи­ро­ва­ние
     for (var i = 0; i < a.length; i++) { // Для ка­ж­до­го эле­мен­та в мас­си­ве a[]

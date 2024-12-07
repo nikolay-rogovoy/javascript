@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Game 2</title>
+    <style>
+    </style>
+    <script>
+
+
+        /**
+         * Создание
+         * createElement
+         * createTextNode
+         * cloneNode
+         * 
+         * append
+         * prepend
+         * before
+         * after
+         * remove
+         * 
+         * 
+         * Устарели:
+         * appendChild
+         * inserBefore
+         * removeChild
+         * replaceChild
+         * 
+         * 
+         * Фрагмент ХТМЛ
+         * insertAdjacentHTML
+         * 
+         * 
+        */
+
+        function init() {
+
+        }
+
+        let intervalHandle;
+
+        function start() {
+
+            if (!intervalHandle) {
+                setTime();
+                intervalHandle = setInterval(() => {
+                    setTime();
+                }, 1000);
+            }
+        }
+
+        function setTime() {
+            let h = document.getElementById('h');
+            let m = document.getElementById('m');
+            let s = document.getElementById('s');
+            const currentDate = new Date();
+            h.innerHTML = getTimeString(currentDate.getHours());
+            m.innerHTML = getTimeString(currentDate.getMinutes());
+            s.innerHTML = getTimeString(currentDate.getSeconds());
+        }
+
+        function getTimeString(num) {
+            return `${num}`.padStart(2, '0');
+        }
+
+        function stop() {
+            if (intervalHandle) {
+                clearInterval(intervalHandle);
+                intervalHandle = null;
+            }
+        }
+
+    </script>
+</head>
+
+<body onload="init()">
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
+    <div id="clock">
+        <span id="h" style="color: red; font-size: 28px;">__</span>:<span id="m"
+            style="color: yellow; font-size: 28px;">__</span>:<span id="s"
+            style="color: forestgreen; font-size: 28px;">__</span>
+    </div>
+</body>
+
+</html>

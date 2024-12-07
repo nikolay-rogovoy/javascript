@@ -12,12 +12,20 @@
     </style>
     <script>
         function f() {
+            alert('Hello world');
+        }
+
+        function f2() {
+            console.log('Click Hello world - from console');
+            alert('Click Hello world');
         }
 
     </script>
 </head>
 
-<body onload="">
+<body onload="f()">
+    <button onclick="f2()">b1</button>
+    <div style="min-height: 100px;min-width: 100px; background-color: blue; max-width: 100px;"></div>
 </body>
 
 </html>

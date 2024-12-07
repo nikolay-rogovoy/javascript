@@ -7,10 +7,20 @@
 Увеличте свойство х на 1 используя префиксный инкремент, прибавте к нему свойство y, результат выведите в консоль
 */
 
+let v1 = { x: 1, y: 2 };
+delete v1.y;
+++v1.x;
+v1.x += v1.y;
+console.log(v1.x);
+
+
 /**
 Создайте две переменные используя шестнадцатиричный литерал: 0xA, 0x6
-Выполните их поразрядное сложение, выведите результат в консоль, должно получиться 0
+Выполните их поразрядное сложение, выведите результат в консоль, должно получиться 2
 */
+
+let q1 = 0xA, q2 = 0x6;
+console.log(q1 & q2);
 
 /**
 Создайте строковую переменную myPrivateData 'My secrets'
@@ -24,7 +34,6 @@ for (let i = 0; i < myPrivateData.length; i++) {
 Для получения символа из его кода используйте String.fromCharCode(код символа)
 */
 
-/**
 let myPrivateData = 'My secrets';
 let key = 1;
 
@@ -39,5 +48,5 @@ for (let i = 0; i < publicData.length; i++) {
     decodedString += String.fromCharCode(publicData[i] ^ key);
 }
 
-console.log(decodedString);
-*/
+console.log(publicData, decodedString);
+

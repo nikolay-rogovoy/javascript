@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<style>
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Document</title>
+
+    <style>
+        .line {
+            border: none;
+        }
+
+        .lamp {
+            border: solid;
+            min-width: 50px;
+            min-height: 50px;
+            max-width: 50px;
+            max-height: 50px;
+            border-radius: 50px;
+        }
+
+        .r {
+            background-color: red;
+        }
+
+        .y {
+            background-color: yellow;
+        }
+
+        .g {
+            background-color: green;
+        }
+    </style>
+
+    <script>
+
+        let state;
+
+        let r;
+        let y;
+        let g;
+        let timeOutHandle;
+
+        function init() {
+            r = document.getElementById('r');
+            y = document.getElementById('y');
+            g = document.getElementById('g');
+        }
+
+
+        /**
+         * Создание
+         * createElement
+         * createTextNode
+         * cloneNode
+         * 
+         * append
+         * prepend
+         * before
+         * after
+         * remove
+         * 
+         * 
+         * Устарели:
+         * appendChild
+         * inserBefore
+         * removeChild
+         * replaceChild
+         * 
+         * 
+         * Фрагмент ХТМЛ
+         * insertAdjacentHTML
+         * 
+         * 
+        */
+
+        function setRed() {
+            r.classList.add('r');
+            y.classList.remove('y');
+            g.classList.remove('g');
+        }
+
+        function setYellow() {
+            r.classList.remove('r');
+            y.classList.add('y');
+            g.classList.remove('g');
+        }
+
+        function setGreen() {
+            r.classList.remove('r');
+            y.classList.remove('y');
+            g.classList.add('g');
+        }
+
+        function setNone() {
+            r.classList.remove('r');
+            y.classList.remove('y');
+            g.classList.remove('g');
+        }
+
+
+        function nextState() {
+            if (state === 'red') {
+                state = 'red_yellow';
+            } else if (state === 'red_yellow') {
+                state = 'green';
+            } else if (state === 'green') {
+                state = 'green_yellow';
+            } else if (state === 'green_yellow') {
+                state = 'red';
+            } else {
+                state = 'red';
+            }
+            return state;
+        }
+        function setColor(state) {
+            if (state === 'red') {
+                setRed();
+            } else if (state.indexOf('yellow') !== -1) {
+                setYellow();
+            } else if (state === 'green') {
+                setGreen();
+            }
+        }
+
+        function start() {
+            nextTic();
+        }
+
+        function stop() {
+            if (timeOutHandle) {
+                clearTimeout(timeOutHandle);
+                timeOutHandle = null;
+                setNone();
+                state = null;
+            }
+        }
+
+
+        function nextTic() {
+
+            nextState();
+            setColor(state);
+
+            let inteval = state.indexOf('yellow') !== -1 ? 500 : 1000;
+
+            timeOutHandle = setTimeout(() => {
+                nextTic();
+            }, inteval);
+
+        }
+
+        function ff() {
+            console.log(this);
+        }
+        ff.bind(1)();
+
+    </script>
+
+</head>
+
+<body onload="init()">
+    <button onclick="f()">Party Time</button>
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
+    <div class="line">
+        <div class="lamp" id="r" onclick="setRed()"></div>
+        <div class="lamp" id="y" onclick="setYellow()"></div>
+        <div class="lamp" id="g" onclick="setGreen()"></div>
+    </div>
+
+</body>
+
+</html>

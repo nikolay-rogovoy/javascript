@@ -16,3 +16,11 @@
 Удалите все буквы o и O из строки, используйте для этого регулярное выражение /[oO]+/g
 Выведите результат в консоль, должно получится HELLWRLD
 */
+
+let v1 = 'Hello World';
+v1 = v1.toLocaleUpperCase();
+v1 = v1.substring(0, v1.indexOf(' ')) + v1.substring(v1.indexOf(' ') + 1);
+v1.indexOf('o')
+v1 = v1.replaceAll(/[oO]+/g, '');
+
+console.log(v1)

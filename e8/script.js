@@ -90,6 +90,10 @@ b) splice
     let a3 = a1.concat(a2);
     let a4 = [...a1, ...a2];
     a1.splice(a1.length, 0, ...a2);
+    a3.forEach(item => console.log(item));
+    a3.map(x => {
+        return { x };
+    });
     // a1.splice(a1.length, 0, a2[0], a2[1], a2[2]);
     console.log(a3, a1);
 })();
@@ -155,7 +159,7 @@ alert(i);
     console.log(arr);
 
     arr = [1, 2, 3, 4, 5];
-    arr.splice(arr.length, 0, ...[2, 3, 4]);
+    arr.splice(arr.length, 0, ...[2, 3, 4]); // -> arr.push(...[2, 3, 4]);
     console.log(arr);
 
     arr = [1, 2, 3, 4, 5];
@@ -164,8 +168,8 @@ alert(i);
 
     arr = [1, 2, 3, 4, 5];
     arr.splice(1, 0, ...['a', 'b']);
-    arr.splice(6, 0, ...['c']);
-    arr.splice(8, 0, ...['e']);
+    arr.splice(6, 0, 'c');
+    arr.splice(8, 0, 'e');
     console.log(arr);
 
 })();
@@ -174,11 +178,19 @@ alert(i);
 Дан объект {js:'test', jq: 'hello', css: 'world'}. Получите массив его ключей.
 */
 (function () {
+
     let obj = { js: 'test', jq: 'hello', css: 'world' };
     let arr = [];
     for (let prop in obj) {
         arr.push(prop);
     }
+    for(let item of arr) {
+        console.log(item);    
+    }
+    for(let item in arr) {
+        console.log(item);    
+    }
+
     console.log(arr, Object.keys(obj));
 })();
 

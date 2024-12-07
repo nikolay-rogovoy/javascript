@@ -114,6 +114,7 @@
     // console.log(arr);
 
 })();
+// !!!
 /**
 Напишите функцию с одним аргументом, сделайте проверки типа аргумента
 а) проверте что аргумент строка, если нет, сгенерируйте исключение.
@@ -124,6 +125,7 @@
 
     function f1(x) {
         if (typeof (x) === 'string') {
+            // какой-то полезный код
         } else {
             throw Error('Неправильный аргумент');
         }
@@ -196,15 +198,15 @@
 а если имеет значение 'en' – то на английском.
 Решите задачу через 2 if, через switch-case и через многомерный массив без ифов и switch.
 */
-(function () {
-
-    let lang = 'ru';
+(function (lang = 'ru') {
     let arr;
 
     if (lang === 'ru') {
         arr = ['Понедельник', 'Вторник'];
     } else if (lang === 'en') {
         arr = ['Monday'];
+    } else {
+        throw new Error(`Ошибочный язык ${lang}`);
     }
 
     switch (lang) {
@@ -214,14 +216,19 @@
         case 'en':
             arr = ['Monday'];
             break;
+        default:
+            throw new Error(`Ошибочный язык ${lang}`);
     }
 
     let v = {
-        'ru': ['Понедельник', 'Вторник'],
-        'en': ['Monday'],
+        ru: ['Понедельник', 'Вторник'],
+        en: ['Monday'],
     }
 
-    console.log(v['ru']);
+    if (!v[lang]) {
+        throw new Error(`Ошибочный язык ${lang}`);
+    }
+    console.log(v[lang]);
 
 })();
 /**
@@ -275,13 +282,17 @@
     let numbers = str.split('').map(x => Number(x));
     let acc = 0;
     for (let i = 0; i < numbers.length; i++) {
-        acc += +numbers[i];
+        acc += numbers[i];
     }
 
-    console.log(numbers.reduce((acc, val) => {
-        acc += +val;
-        return acc;
-    }, 0));
+    console.log(
+        numbers.reduce(
+            (acc, val) => {
+                acc += val;
+                return acc;
+            },
+            0)
+    );
     console.log(numbers, acc);
 })();
 /**
@@ -304,14 +315,6 @@
         console.log('да');
     } else {
         console.log('нет');
-
-    }
-
-    if (Number(str[0]) + Number(str[1]) + Number(str[2]) == Number(str[3]) + Number(str[4]) + Number(str[5])) {
-        console.log('да');
-    } else {
-        console.log('нет');
-
     }
 
 })();
