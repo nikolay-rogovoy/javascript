@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>title</title>
+</head>
+
+<body>
+
+  <div id="d1" style="position: absolute;">div1</div>
+
+  <script>
+    d1.style.top = '500px'; // например, '456px'
+    d1.style.left = '500px'; // например, '123px', значение вычисляется во время работы скрипта
+
+
+    // полная перезапись стилей elem, используем =
+    // elem.style.cssText = `top: 400px;left: 400px;`;
+
+    // добавление новых стилей к существующим стилям elem, используем +=
+    // elem.style.cssText += `top: 400px;left: 400px;`;
+
+    alert(document.body.className);
+
+
+    // добавление класса
+    document.body.classList.add('article');
+    alert(document.body.className);
+
+    // Методы classList:
+
+    // elem.classList.add / remove("class") – добавить / удалить класс.
+    // elem.classList.toggle("class") – добавить класс, если его нет, иначе удалить.
+    // elem.classList.contains("class") – проверка наличия класса, возвращает true / false.
+
+
+    for (let name of document.body.classList) {
+      alert(name); // main, затем page
+    }
+
+
+    document.body.style.display = "none"; // скрыть
+
+    setTimeout(() => document.body.style.display = "", 1000); // возврат к нормальному состоянию
+
+  </script>
+
+
+</body>
+
+</html>

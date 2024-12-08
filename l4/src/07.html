@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>title</title>
+</head>
+
+<body>
+
+  <style>
+    .alert {
+      padding: 15px;
+      border: 1px solid #d6e9c6;
+      border-radius: 4px;
+      color: #3c763d;
+      background-color: #dff0d8;
+    }
+  </style>
+
+
+  <div class="alert">
+    <strong>Всем привет!</strong> Вы прочитали важное сообщение.
+  </div>
+
+
+  <div id="div1">div1</div>
+  <script>
+    div1.insertAdjacentHTML('beforebegin', '<p>Привет</p>');
+    div1.insertAdjacentHTML('afterend', '<p>Пока</p>');
+  </script>
+
+  <div id="div2">div2</div>
+
+  <script>
+    document.body.insertAdjacentHTML("afterbegin", `<div class="alert">
+    <strong>Всем привет!</strong> Вы прочитали важное сообщение.
+  </div>`);
+
+    setTimeout(
+      () => {
+        let elem = document.getElementById('div1');
+        elem.remove();
+      },
+      1300);
+  </script>
+
+
+  <script>
+    let div = document.createElement('div');
+    div.className = "alert";
+    div.innerHTML = "<strong>Всем привет!</strong> Вы прочитали важное сообщение.";
+
+    document.body.append(div);
+    setTimeout(() => div.remove(), 1000);
+  </script>
+
+</body>
+
+</html>
